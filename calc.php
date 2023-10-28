@@ -1,8 +1,33 @@
 <?php
 //calculator 
-echo $_GET["number1"] +  $_GET["number2"];
-echo $_GET["number1"] -  $_GET["number2"];
-echo $_GET["number1"] * $_GET["number2"];
+$number1= $_GET["number1"];
+$number2= $_GET["number2"];
+$op = $_GET["op"];
+
+if(empty($number1)){
+    $result="الرقم الاول فارغ";
+}
+ elseif( empty($number2)){
+    $result="الرقم الثاني فارغ";
+ } elseif(empty($op)){
+    $result= "يرجى ادخال العملية ";
+ }else{ if($op==="+"){
+    $result= $_GET["number1"] +  $_GET["number2"];
+
+} elseif($op=== "-"){
+    $result= $_GET["number1"] - $_GET["number2"]; }
+    elseif($op=== "*"){
+        $result= $_GET["number1"] * $_GET["number2"]; }
+        elseif($op=== "/"){
+            $result= $_GET["number1"] / $_GET["number2"]; }
+
+ }
+
+
+
+
+//echo $_GET["number1"] -  $_GET["number2"];
+//echo $_GET["number1"] * $_GET["number2"];
 ;
 ?>
 
@@ -20,6 +45,14 @@ echo $_GET["number1"] * $_GET["number2"];
                 <lable>Enter number2:</lable>
                 <input type="number" id="num2" name="number2" class="form-contrl">
 </div>
+<br>
+<div>
+    <lable> العملية</lable>
+    <input type="text" name="op"class="from-control">
+</div>
+<div>
+    <?php echo $result ?>
+
 <br>
 <input type="submit" class="btn btn-primary">
 </form>
